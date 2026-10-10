@@ -258,6 +258,35 @@ export const tr = {
     },
   },
 
+  photos: {
+    heading: (count: number, max: number) => `Fotoğraflar (${count}/${max})`,
+    intro:
+      "İlk fotoğraf kapak olarak galeride görünür. Sitede kare olarak gösterilir; fotoğraf hiçbir zaman sündürülmez.",
+    cover: "Kapak",
+    makeCover: "Kapak yap",
+    delete: "Sil",
+    deleteConfirm: "Bu fotoğraf silinecek. Emin misin?",
+    choose: "Fotoğraf seç",
+    chooseHint:
+      "JPG, PNG ya da WebP. Çok geniş ya da çok uzun (2:1'den fazla) fotoğraflar kabul edilmez.",
+    full: "En fazla 3 fotoğraf eklenebilir. Yeni fotoğraf için önce birini sil.",
+    previewTitle: "Galeride böyle görünecek",
+    upload: "Yükle",
+    uploading: "Yükleniyor…",
+    cancel: "Vazgeç",
+    alt: (name: string, n: number) => `${name} adlı köpeğin ${n}. fotoğrafı`,
+    errors: {
+      notImage: "Bu dosya açılamadı. Lütfen JPG, PNG ya da WebP bir fotoğraf seç.",
+      tooLarge: "Dosya çok büyük (en fazla 25 MB).",
+      badShape:
+        "Fotoğraf çok geniş ya da çok uzun. Köpeğin iyi göründüğü, daha kare bir fotoğraf seç.",
+      tooSmall: "Fotoğraf çok küçük (en az 300 piksel olmalı).",
+      uploadFailed: "Fotoğraf yüklenemedi. Bağlantını kontrol edip tekrar dene.",
+      limit: "Bu köpeğin zaten 3 fotoğrafı var.",
+      actionFailed: "İşlem yapılamadı. Sayfayı yenileyip tekrar dene.",
+    },
+  },
+
   dogForm: {
     newTitle: "Yeni köpek",
     editTitle: (name: string) => `${name} — düzenle`,

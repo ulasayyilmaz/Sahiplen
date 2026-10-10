@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { z } from "zod";
 
 import { DogForm } from "@/components/panel/dog-form";
+import { PhotoManager } from "@/components/panel/photo-manager";
 import { StatusBadge } from "@/components/panel/shelter-dog-list";
 import { requireApprovedStaff } from "@/lib/auth/session";
 import { todayInTurkey } from "@/lib/dogs/age";
@@ -30,6 +31,14 @@ export default async function EditDogPage({
       <p className="mb-6">
         <StatusBadge status={dog.status} />
       </p>
+      <div className="mb-6">
+        <PhotoManager
+          dogId={dog.id}
+          dogName={dog.name}
+          shelterId={staff.shelterId}
+          photos={dog.photos}
+        />
+      </div>
       <DogForm
         key={dog.id}
         dog={dog}
