@@ -246,6 +246,20 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      admin_list_staff: {
+        Args: never
+        Returns: {
+          approved: boolean
+          created_at: string
+          email: string
+          email_confirmed: boolean
+          full_name: string
+          phone: string
+          role: Database["public"]["Enums"]["staff_role"]
+          shelter_id: string
+          user_id: string
+        }[]
+      }
       admin_reject_staff: { Args: { target_user: string }; Returns: undefined }
       admin_set_staff: {
         Args: {

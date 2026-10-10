@@ -64,11 +64,14 @@ export function TextField({
   autoComplete,
   defaultValue,
   inputMode,
+  list,
 }: BaseFieldProps & {
   type?: "text" | "email" | "password" | "tel" | "number" | "date";
   autoComplete?: string;
   defaultValue?: string;
   inputMode?: "text" | "numeric" | "tel" | "email";
+  /** id of a <datalist> with suggestions. */
+  list?: string;
 }) {
   const id = `field-${name}`;
   return (
@@ -80,6 +83,7 @@ export function TextField({
         autoComplete={autoComplete}
         defaultValue={defaultValue}
         inputMode={inputMode}
+        list={list}
         required={required}
         aria-invalid={error ? true : undefined}
         aria-describedby={describedBy(id, error, hint)}

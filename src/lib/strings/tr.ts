@@ -76,6 +76,12 @@ export const tr = {
     retry: "Tekrar dene",
   },
 
+  notFound: {
+    title: "Sayfa bulunamadı",
+    body: "Aradığın sayfa taşınmış ya da hiç var olmamış olabilir.",
+    home: "Ana sayfaya dön",
+  },
+
   nav: {
     label: "Ana menü",
     staffLogin: "Barınak girişi",
@@ -157,6 +163,67 @@ export const tr = {
         "Şifre yenileme bağlantısı geçersiz ya da süresi dolmuş. Lütfen yeni bir bağlantı iste.",
       requestNew: "Yeni bağlantı iste",
     },
+  },
+
+  admin: {
+    title: "Yönetim",
+    pending: {
+      heading: (count: number) => `Onay bekleyen kayıtlar (${count})`,
+      empty: "Onay bekleyen kayıt yok.",
+      signedUp: (date: string) => `Kayıt: ${date}`,
+      emailUnconfirmed: "E-posta henüz doğrulanmadı",
+      assignShelter: "Atanacak barınak",
+      approve: "Onayla",
+      reject: "Reddet ve sil",
+      rejectConfirm: (name: string) =>
+        `${name} adlı kişinin kaydı silinecek. Bu işlem geri alınamaz. Emin misin?`,
+    },
+    staff: {
+      heading: (count: number) => `Personel (${count})`,
+      empty: "Henüz onaylı personel yok.",
+      shelter: "Barınak",
+      saveShelter: "Barınağı değiştir",
+      revoke: "Yetkiyi kaldır",
+      revokeConfirm: (name: string) =>
+        `${name} artık köpekleri düzenleyemeyecek ve onay bekleyenler listesine dönecek. Emin misin?`,
+      adminBadge: "Platform yöneticisi",
+      you: "(sen)",
+    },
+    shelters: {
+      heading: (count: number) => `Barınaklar (${count})`,
+      add: "Yeni barınak ekle",
+      edit: "Düzenle",
+      newTitle: "Yeni barınak",
+      editTitle: "Barınağı düzenle",
+      back: "Yönetime dön",
+      save: "Kaydet",
+      saved: "Barınak kaydedildi.",
+      fields: {
+        name: "Barınak adı",
+        city: "Şehir",
+        district: "İlçe",
+        phone: "Telefon",
+        address: "Adres",
+        visitingHours: "Ziyaret saatleri",
+        latitude: "Enlem",
+        longitude: "Boylam",
+      },
+      hints: {
+        city: "Mevcut bir şehri seçebilir ya da yenisini yazabilirsin. Filtrede bu ad görünür.",
+        coordinates: "İsteğe bağlı. Ondalık derece, örn. 41.0082 / 28.9784.",
+      },
+      errors: {
+        name: "Barınak adını yaz.",
+        city: "Şehri yaz.",
+        district: "İlçeyi yaz.",
+        latitude: "Enlem -90 ile 90 arasında bir sayı olmalı.",
+        longitude: "Boylam -180 ile 180 arasında bir sayı olmalı.",
+        tooLong: "Çok uzun.",
+      },
+    },
+    phone: "Telefon",
+    email: "E-posta",
+    actionFailed: "İşlem yapılamadı. Sayfayı yenileyip tekrar dene.",
   },
 
   panel: {
