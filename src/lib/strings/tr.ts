@@ -1,7 +1,7 @@
 // All user-facing Turkish strings. Components must not hardcode UI text.
 
 import type { AgeGroup } from "@/lib/dogs/age";
-import type { DogSex, DogSize } from "@/lib/dogs/types";
+import type { DogSex, DogSize, DogStatus } from "@/lib/dogs/types";
 
 export const tr = {
   site: {
@@ -56,6 +56,13 @@ export const tr = {
       female: "Dişi",
       unknown: "Cinsiyeti bilinmiyor",
     } satisfies Record<DogSex, string>,
+    statuses: {
+      available: "Yuva bekliyor",
+      reserved: "Rezerve",
+      adopted: "Sahiplendirildi",
+      deceased: "Hayatını kaybetti",
+      transferred: "Nakledildi",
+    } satisfies Record<DogStatus, string>,
     ageGroups: {
       puppy: "Yavru (1 yaş altı)",
       young: "Genç (1–3 yaş)",
@@ -91,6 +98,7 @@ export const tr = {
   },
 
   form: {
+    choose: "Seç…",
     required: "Bu alan zorunlu.",
     saving: "Kaydediliyor…",
     sending: "Gönderiliyor…",
@@ -237,5 +245,79 @@ export const tr = {
     noShelter: "Hesabına henüz bir barınak atanmamış.",
     adminHint:
       "Platform yöneticisi olarak personel onaylarını ve barınakları Yönetim sayfasından yönetebilirsin.",
+    dogs: {
+      heading: "Barınağının köpekleri",
+      add: "Yeni köpek ekle",
+      filterLabel: "Duruma göre",
+      all: "Tümü",
+      count: (count: number) => `${count} köpek`,
+      empty: "Bu durumda köpek yok.",
+      edit: "Düzenle",
+      updated: (date: string) => `Son güncelleme: ${date}`,
+      hiddenFromPublic: "Sitede görünmüyor",
+    },
+  },
+
+  dogForm: {
+    newTitle: "Yeni köpek",
+    editTitle: (name: string) => `${name} — düzenle`,
+    back: "Panele dön",
+    save: "Kaydet",
+    created: "Köpek eklendi. Şimdi fotoğraf ekleyebilirsin.",
+    saved: "Değişiklikler kaydedildi.",
+    sections: {
+      basics: "Temel bilgiler",
+      health: "Sağlık",
+      temperament: "Mizaç",
+      details: "Diğer bilgiler",
+    },
+    fields: {
+      name: "Adı",
+      sex: "Cinsiyet",
+      size: "Boyut",
+      color: "Renk",
+      age: "Tahmini yaş",
+      ageYears: "Yıl",
+      ageMonths: "Ay",
+      neutered: "Kısırlaştırıldı",
+      vaccinated: "Aşıları yapıldı",
+      healthNotes: "Sağlık notları",
+      goodWithKids: "Çocuklarla",
+      goodWithDogs: "Diğer köpeklerle",
+      goodWithCats: "Kedilerle",
+      energyLevel: "Enerji seviyesi",
+      description: "Tanıtım yazısı",
+      microchipNumber: "Mikroçip numarası",
+      captureDistrict: "Bulunduğu ilçe",
+      status: "Durum",
+    },
+    hints: {
+      age: "Bilinmiyorsa tahmini yaz; sitede yaş bundan hesaplanır ve zamanla güncellenir.",
+      description: "Sitede görünür. Köpeğin karakterini ve nasıl bir yuva aradığını anlat.",
+      healthNotes: "Sitede görünür. Sürekli ilaç, özel bakım gibi bilgiler.",
+      microchip: "Varsa 15 haneli numara.",
+      status:
+        "Yalnızca “Yuva bekliyor” durumundaki köpekler sitede görünür. Diğer durumlar köpeği hemen yayından kaldırır.",
+    },
+    options: {
+      unknown: "Bilinmiyor",
+      yes: "İyi anlaşır",
+      no: "Anlaşamaz",
+      energy: { 1: "Sakin", 2: "Orta", 3: "Çok enerjik" } as Record<1 | 2 | 3, string>,
+    },
+    errors: {
+      name: "Köpeğin adını yaz.",
+      sex: "Cinsiyeti seç.",
+      size: "Boyutu seç.",
+      ageYears: "Yılı 0 ile 25 arasında yaz.",
+      ageMonths: "Ayı 0 ile 11 arasında yaz.",
+      microchip: "Mikroçip numarası 9–15 rakamdan oluşmalı.",
+      microchipTaken: "Bu mikroçip numarası başka bir köpekte kayıtlı.",
+      status: "Durumu seç.",
+      tooLong: "Çok uzun.",
+      notFound: "Köpek bulunamadı ya da bu köpeği düzenleme yetkin yok.",
+    },
+    confirmHide: (status: string) =>
+      `Durum “${status}” olarak değişecek ve köpek sitede görünmeyecek. Emin misin?`,
   },
 } as const;

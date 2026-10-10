@@ -56,6 +56,13 @@ export function ageInMonths(birthDate: string, today: string): number {
   return Math.max(0, months);
 }
 
+/** Estimated birth date for a dog that is `months` old today. */
+export function birthDateFromAgeInMonths(months: number, today: string): string {
+  const [year, month, day] = parseIsoDate(today);
+  // Date.UTC normalises negative months and day overflow (e.g. Mar 31 - 1 month → Mar 3).
+  return new Date(Date.UTC(year, month - 1 - months, day)).toISOString().slice(0, 10);
+}
+
 /** Turkish age wording, e.g. "5 aylık" or "3 yaşında". */
 export function formatAge(birthDate: string, today: string): string {
   const months = ageInMonths(birthDate, today);

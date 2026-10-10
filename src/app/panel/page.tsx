@@ -1,21 +1,29 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { ShelterDogList, StatusFilter } from "@/components/panel/shelter-dog-list";
 import { isPlatformAdmin, requireUser } from "@/lib/auth/session";
+import { todayInTurkey } from "@/lib/dogs/age";
+import { getShelterDogs } from "@/lib/dogs/staff-queries";
+import { DOG_STATUSES } from "@/lib/dogs/types";
 import { tr } from "@/lib/strings/tr";
 
 export const metadata: Metadata = { title: `${tr.panel.title} · ${tr.site.name}` };
 
 const t = tr.panel;
 
-export default async function PanelPage() {
+export default async function PanelPage({ searchParams }: PageProps<"/panel">) {
   const user = await requireUser();
+  const durum = (await searchParams).durum;
+  const status = DOG_STATUSES.find((s) => s === durum);
+  const canManageDogs = user.approved && user.shelterId !== null;
+  const dogs = canManageDogs ? await getShelterDogs(user.shelterId!, status) : [];
 
   return (
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-2xl font-bold sm:text-3xl">{t.welcome(user.fullName)}</h1>
-        {user.approved && user.shelterName && (
+        {canManageDogs && user.shelterName && (
           <p className="mt-1 text-stone-600">
             {t.shelterLabel}: {user.shelterName}
           </p>
@@ -44,6 +52,27 @@ export default async function PanelPage() {
             {tr.nav.admin}
           </Link>
         </p>
+      )}
+
+      {canManageDogs && (
+        <section aria-labelledby="dogs-heading" className="flex flex-col gap-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h2 id="dogs-heading" className="text-xl font-semibold">
+              {t.dogs.heading}{" "}
+              <span className="text-base font-normal text-stone-600">
+                ({t.dogs.count(dogs.length)})
+              </span>
+            </h2>
+            <Link
+              href="/panel/kopekler/yeni"
+              className="rounded-lg bg-amber-700 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-800"
+            >
+              {t.dogs.add}
+            </Link>
+          </div>
+          <StatusFilter current={status} />
+          <ShelterDogList dogs={dogs} today={todayInTurkey()} />
+        </section>
       )}
     </div>
   );

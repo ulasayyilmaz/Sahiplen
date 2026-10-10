@@ -119,6 +119,32 @@ export function TextAreaField({
   );
 }
 
+export function CheckboxField({
+  name,
+  label,
+  defaultChecked,
+}: {
+  name: string;
+  label: string;
+  defaultChecked?: boolean;
+}) {
+  const id = `field-${name}`;
+  return (
+    <div className="flex items-center gap-2">
+      <input
+        id={id}
+        name={name}
+        type="checkbox"
+        defaultChecked={defaultChecked}
+        className="size-5 rounded border-stone-400 accent-amber-700"
+      />
+      <label htmlFor={id} className="text-sm font-medium text-stone-800">
+        {label}
+      </label>
+    </div>
+  );
+}
+
 export function SelectField({
   name,
   label,
