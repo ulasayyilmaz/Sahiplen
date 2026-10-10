@@ -20,8 +20,9 @@ export function DogCard({ dog, today }: Props) {
             fill
             sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover"
-            // Local SVG placeholders can't go through the image optimizer.
-            unoptimized={dog.photoUrl.endsWith(".svg")}
+            // Uploads are already resized in the browser (max 1200 px) and SVG
+            // placeholders can't be optimized, so serve every photo as-is.
+            unoptimized
           />
         ) : (
           <div
