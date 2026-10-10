@@ -18,8 +18,8 @@ export async function createClient() {
         try {
           cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options));
         } catch {
-          // Server Components can't set cookies. Harmless while there is no auth;
-          // session refresh will live in proxy.ts once auth arrives (iteration 2).
+          // Server Components can't set cookies; src/proxy.ts refreshes the
+          // session on every request, so this is safe to ignore here.
         }
       },
     },
