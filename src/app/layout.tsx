@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import Link from "next/link";
-
+import { SiteHeader } from "@/components/site-header";
 import { tr } from "@/lib/strings/tr";
 
 import "./globals.css";
@@ -27,14 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           {tr.site.skipToContent}
         </a>
-        <header className="border-b border-stone-200 bg-white">
-          <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
-            <Link href="/" className="text-xl font-bold text-amber-800">
-              {tr.site.name}
-            </Link>
-            <p className="text-sm text-stone-600">{tr.site.tagline}</p>
-          </div>
-        </header>
+        <SiteHeader />
         <main id="main" className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6">
           {children}
         </main>

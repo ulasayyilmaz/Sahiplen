@@ -72,6 +72,103 @@ export const tr = {
   error: {
     title: "Bir şeyler ters gitti",
     body: "Köpekleri yüklerken bir sorun oluştu. Lütfen biraz sonra tekrar dene.",
+    genericBody: "Sayfa yüklenirken bir sorun oluştu. Lütfen biraz sonra tekrar dene.",
     retry: "Tekrar dene",
+  },
+
+  nav: {
+    label: "Ana menü",
+    staffLogin: "Barınak girişi",
+    panel: "Panel",
+    admin: "Yönetim",
+    logout: "Çıkış yap",
+  },
+
+  form: {
+    required: "Bu alan zorunlu.",
+    saving: "Kaydediliyor…",
+    sending: "Gönderiliyor…",
+    genericError: "Bir sorun oluştu. Lütfen biraz sonra tekrar dene.",
+    fixErrors: "Lütfen işaretli alanları düzelt.",
+  },
+
+  auth: {
+    fields: {
+      fullName: "Ad soyad",
+      phone: "Telefon",
+      email: "E-posta",
+      password: "Şifre",
+      newPassword: "Yeni şifre",
+      shelter: "Çalıştığın barınak",
+      chooseShelter: "Barınağını seç",
+    },
+    hints: {
+      password: "En az 8 karakter.",
+      phone: "Kaydını onaylamadan önce seni arayabiliriz.",
+      shelterMissing:
+        "Barınağın listede yoksa kayıt olmadan önce platform yöneticisiyle iletişime geç.",
+    },
+    errors: {
+      fullName: "Adını ve soyadını yaz.",
+      phone: "Geçerli bir telefon numarası yaz.",
+      email: "Geçerli bir e-posta adresi yaz.",
+      passwordTooShort: "Şifre en az 8 karakter olmalı.",
+      passwordTooLong: "Şifre en fazla 72 karakter olabilir.",
+      shelter: "Listeden barınağını seç.",
+      invalidCredentials: "E-posta ya da şifre hatalı.",
+      emailNotConfirmed:
+        "E-posta adresin henüz doğrulanmadı. Kayıttan sonra gönderdiğimiz bağlantıya tıkla.",
+      weakPassword: "Bu şifre çok zayıf ya da bilinen bir şifre. Başka bir şifre seç.",
+      samePassword: "Yeni şifre eskisinden farklı olmalı.",
+      rateLimit: "Çok fazla deneme yapıldı. Lütfen birkaç dakika sonra tekrar dene.",
+      emailNotAuthorized:
+        "Bu adrese şu an e-posta gönderilemiyor. Lütfen platform yöneticisiyle iletişime geç.",
+      linkInvalid:
+        "Bağlantı geçersiz ya da süresi dolmuş. Lütfen yeniden giriş yap ya da yeni bağlantı iste.",
+    },
+    login: {
+      title: "Barınak personeli girişi",
+      submit: "Giriş yap",
+      forgotPassword: "Şifremi unuttum",
+      noAccount: "Hesabın yok mu?",
+      signUpLink: "Kayıt ol",
+    },
+    signUp: {
+      title: "Barınak personeli kaydı",
+      intro:
+        "Barınağının köpeklerini sitede yayınlamak için kayıt ol. Kaydın, platform yöneticisi onayladıktan sonra aktif olur.",
+      submit: "Kayıt ol",
+      haveAccount: "Zaten hesabın var mı?",
+      loginLink: "Giriş yap",
+      checkEmail:
+        "Kaydın alındı. E-posta adresine bir doğrulama bağlantısı gönderdik; hesabını etkinleştirmek için bağlantıya tıkla.",
+    },
+    forgot: {
+      title: "Şifremi unuttum",
+      intro: "E-posta adresini yaz, şifreni yenilemen için bir bağlantı gönderelim.",
+      submit: "Bağlantı gönder",
+      sent: "Bu adrese kayıtlı bir hesap varsa şifre yenileme bağlantısı gönderdik. E-postanı kontrol et.",
+      backToLogin: "Girişe dön",
+    },
+    reset: {
+      title: "Yeni şifre belirle",
+      submit: "Şifreyi kaydet",
+      noSession:
+        "Şifre yenileme bağlantısı geçersiz ya da süresi dolmuş. Lütfen yeni bir bağlantı iste.",
+      requestNew: "Yeni bağlantı iste",
+    },
+  },
+
+  panel: {
+    title: "Panel",
+    welcome: (name: string) => `Hoş geldin, ${name}`,
+    shelterLabel: "Barınak",
+    pendingTitle: "Kaydın onay bekliyor",
+    pendingBody:
+      "Platform yöneticisi kaydını onayladığında barınağının köpeklerini buradan yönetebileceksin. Bu genellikle birkaç gün sürer.",
+    requestedShelter: (name: string) => `Seçtiğin barınak: ${name}`,
+    noShelter: "Hesabına henüz bir barınak atanmamış.",
+    adminHint:
+      "Platform yöneticisi olarak personel onaylarını ve barınakları Yönetim sayfasından yönetebilirsin.",
   },
 } as const;
