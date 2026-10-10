@@ -133,6 +133,8 @@ export type Database = {
         Row: {
           approved: boolean
           created_at: string
+          full_name: string
+          phone: string | null
           role: Database["public"]["Enums"]["staff_role"]
           shelter_id: string | null
           user_id: string
@@ -140,6 +142,8 @@ export type Database = {
         Insert: {
           approved?: boolean
           created_at?: string
+          full_name: string
+          phone?: string | null
           role?: Database["public"]["Enums"]["staff_role"]
           shelter_id?: string | null
           user_id: string
@@ -147,6 +151,8 @@ export type Database = {
         Update: {
           approved?: boolean
           created_at?: string
+          full_name?: string
+          phone?: string | null
           role?: Database["public"]["Enums"]["staff_role"]
           shelter_id?: string | null
           user_id?: string
@@ -240,7 +246,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      admin_reject_staff: { Args: { target_user: string }; Returns: undefined }
+      admin_set_staff: {
+        Args: {
+          set_approved: boolean
+          set_shelter_id: string
+          target_user: string
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       dog_sex: "male" | "female" | "unknown"
